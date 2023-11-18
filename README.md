@@ -41,17 +41,17 @@ pip install pytesseract
 
 * Set the GOOGLE_APPLICATION_CREDENTIALS environment variable to the path of your Google Cloud Vision API key file.
 
-5. Run the ناطق application:
+5. Run the (Nateq) application:
 ```
 python your_script_name.py
 ```
 
 ## Usage
-ناطق offers multiple functionalities through its intuitive interface:
+(Nateq) offers multiple functionalities through its intuitive interface:
 
 *Faster Model*: Use the faster model for quick text-to-speech conversion.
 *Better Model*: Opt for the better model when quality is a priority.
 *Record!*: Record your own pronunciation and receive a thank-you message.
 
 ##Contributing
-If you'd like to contribute to ناطق, feel free to open an issue or submit a pull request. Your feedback and enhancements are highly appreciated.
+If you'd like to contribute to (Nateq), feel free to open an issue or submit a pull request. Your feedback and enhancements are highly appreciated.
