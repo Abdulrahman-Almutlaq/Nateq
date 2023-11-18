@@ -53,5 +53,5 @@ python your_script_name.py
 *Better Model*: Opt for the better model when quality is a priority.
 *Record!*: Record your own pronunciation and receive a thank-you message.
 
-##Contributing
+## Contributing
 If you'd like to contribute to (Nateq), feel free to open an issue or submit a pull request. Your feedback and enhancements are highly appreciated.
