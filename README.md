@@ -1,7 +1,6 @@
-# ناطق
-# Intelligent Arabic Text-to-Speech with OpenAI
+# Nateq - Intelligent Arabic Text-to-Speech with OpenAI
 
-(Nateq) is an innovative application that leverages artificial intelligence solutions, specifically designed for Arabic language processing. Tailored for Arabicthon 2023, ناطق combines the power of OpenAI's language models and Google Cloud Vision API to offer advanced text-to-speech capabilities.
+Nateq - (ناطق) is an innovative application that leverages artificial intelligence solutions, specifically designed for Arabic language processing. Tailored for Arabicthon 2023, ناطق combines the power of OpenAI's language models and Google Cloud Vision API to offer advanced text-to-speech capabilities.
 
 ## Features
 
@@ -12,7 +11,7 @@
 
 ## Installation
 
-To run ناطق locally, follow these steps:
+To run Nateq locally, follow these steps:
 
 1. Install the required Python packages:
 
@@ -20,7 +19,7 @@ To run ناطق locally, follow these steps:
    pip install gradio pydub librosa google-cloud-vision numpy
    ```
 
-2. nstall the Tesseract OCR engine:
+2. Install the Tesseract OCR engine:
 
 * On Linux:
 ```
@@ -43,7 +42,7 @@ pip install pytesseract
 
 5. Run the (Nateq) application:
 ```
-python your_script_name.py
+python Nateq.py
 ```
 
 ## Usage
