@@ -1,7 +1,7 @@
 # ناطق
 # Intelligent Arabic Text-to-Speech with OpenAI
 
-ناطق (Nateq) is an innovative application that leverages artificial intelligence solutions, specifically designed for Arabic language processing. Tailored for Arabicthon 2023, ناطق combines the power of OpenAI's language models and Google Cloud Vision API to offer advanced text-to-speech capabilities.
+(Nateq) is an innovative application that leverages artificial intelligence solutions, specifically designed for Arabic language processing. Tailored for Arabicthon 2023, ناطق combines the power of OpenAI's language models and Google Cloud Vision API to offer advanced text-to-speech capabilities.
 
 ## Features
 
