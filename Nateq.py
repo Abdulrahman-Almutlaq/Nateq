@@ -12,6 +12,7 @@ import gradio as gr
 import numpy as np
 import librosa
 from pathlib import Path
+import soundfile as sf
 
 
 def is_noise(audio, threshold_energy=-30):
@@ -37,7 +38,7 @@ def is_noise(audio, threshold_energy=-30):
 
 
 
-
+print(sf.available_formats())
 
 
 os.environ['OPENAI_API_KEY'] = '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'
@@ -52,9 +53,9 @@ def audio_gen_2(message, image=None):
         input=message,
     )
     
-    response.stream_to_file("output.mp3")
+    response.stream_to_file("output.wav")
     
-    y, sr = librosa.load('output.mp3')
+    y, sr = librosa.load('output.wav')
     
     return (sr, y)
 
@@ -102,17 +103,17 @@ def audio_gen_1(message):
             input=message,
         )
 
-        response.stream_to_file("output.mp3")
+        response.stream_to_file("output.wav")
 
-        y, sr = librosa.load('output.mp3')
+        y, sr = librosa.load('output.wav')
 
-        file_path = "output.mp3"
+        file_path = "output.wav"
 
         current_path = os.getcwd()
         
         full_path = os.path.join(current_path, file_path)
 
-        audio = AudioSegment.from_file(full_path, format="mp3")
+        audio = AudioSegment.from_file(full_path, format="wav")
 
         if not is_noise(audio):
             flag = False
@@ -133,8 +134,4 @@ demo_1 = gr.Interface(fn=audio_gen_1,
 
 demo = gr.TabbedInterface([demo_1, demo_2, demo_3], ["Faster model", "Better model", "Record!"])
 
-<<<<<<< HEAD
 demo.launch(inline = False, share=True)
-=======
-demo.launch(inline = False, server_name="0.0.0.0")
->>>>>>> d8f89d3d4f8806afbd5ab9164175f331f830c39d
