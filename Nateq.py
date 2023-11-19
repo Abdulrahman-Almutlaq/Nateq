@@ -134,4 +134,4 @@ demo_1 = gr.Interface(fn=audio_gen_1,
 
 demo = gr.TabbedInterface([demo_1, demo_2, demo_3], ["Faster model", "Better model", "Record!"])
 
-demo.launch(inline = False, server='0.0.0.0')
+demo.launch(inline = False, server_name='0.0.0.0')
