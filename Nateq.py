@@ -1,22 +1,17 @@
 from pydub import AudioSegment
-from langchain.chat_models import ChatOpenAI
 from openai import OpenAI
 import openai
 import os
 import gradio as gr
 import numpy as np
 import librosa
-from google.cloud.vision_v1 import types
-from google.cloud import vision
 from PIL import Image
 import numpy as np
-from langchain.chat_models import ChatOpenAI
-from openai import OpenAI
-import openai
 import os
 import gradio as gr
 import numpy as np
 import librosa
+from pathlib import Path
 
 
 def is_noise(audio, threshold_energy=-30):
@@ -64,14 +59,11 @@ def audio_gen_2(message, image=None):
     return (sr, y)
 
 demo_2 = gr.Interface(fn=audio_gen_2, 
-                    inputs=["text", gr.Image()],  
+                    inputs=["text"],  
                     outputs=["audio", "text"],
                     cache_examples=True,
                    title="""
 ناطق هو موقع مبتكر يعتمد على حلول الذكاء الاصطناعي، موجه خصيصًا إلى Arabicthon 2023""",)
-
-
-import gradio as gr
 
 def record_and_thank_you(word_recording, word):
     mine = f"Thank you for recording!"
@@ -92,64 +84,16 @@ def is_noise(audio, threshold_energy=-30):
     energy = 10 * np.log10(np.mean(audio_array ** 2))
     return energy < threshold_energy
 
-from google.cloud import vision_v1 as vision
-from google.cloud.vision_v1 import types
-from PIL import Image
-import numpy as np
-
-# ... (your other imports)
-
-def perform_ocr(image_path):
-    client = vision.ImageAnnotatorClient()
-
-    with open(image_path, "rb") as image_file:
-        content = image_file.read()
-
-    image = types.Image(content=content)
-
-    # Specify the language explicitly as Arabic
-    image_context = types.ImageContext(language_hints=["ar"])
-
-    response = client.text_detection(image=image, image_context=image_context)
-
-    # Extracting text from response
-    texts = response.text_annotations
-
-    # Check confidence level
-    confidence = texts[0].confidence if texts else 0.0
-
-    # Filter out low-confidence results
-    if confidence >= 0.7:
-        extracted_text = texts[0].description
-    else:
-        extracted_text = "Low confidence result"
-
-    return extracted_text
 
 
-def audio_gen_1(message, image=None):
-    # If an image is provided, use its content to update the message
-    if image is not None and np.any(image):
-        # Convert the NumPy array to an image
-        pil_image = Image.fromarray((image * 255).astype(np.uint8))
 
-        # Save the image as a temporary file
-        temp_image_path = "temp_image.png"
-        pil_image.save(temp_image_path)
 
-        # Use Google Cloud Vision API to extract text from the image
-        extracted_text = perform_ocr(temp_image_path)
-        
-        print(extracted_text)
-        # Update the message with the extracted text
-        message = extracted_text
+def audio_gen_1(message):
+   
 
-        # Remove the temporary image file
-        os.remove(temp_image_path)
+    flag = True
 
-    boolean = True
-    
-    while boolean:
+    while flag:
         client = OpenAI()
 
         response = client.audio.speech.create(
@@ -163,10 +107,15 @@ def audio_gen_1(message, image=None):
         y, sr = librosa.load('output.mp3')
 
         file_path = "output.mp3"
-        audio = AudioSegment.from_file(file_path, format="mp3")
+
+        current_path = os.getcwd()
+        
+        full_path = os.path.join(current_path, file_path)
+
+        audio = AudioSegment.from_file(full_path, format="mp3")
 
         if not is_noise(audio):
-            boolean = False
+            flag = False
 
     return (sr, y), "Doesn't seem good? Please record your own in the record page. Thank you!"
 
@@ -175,7 +124,7 @@ def audio_gen_1(message, image=None):
 
 
 demo_1 = gr.Interface(fn=audio_gen_1, 
-                    inputs=["text", gr.Image()],  
+                    inputs=["text"],  
                     outputs=["audio", "text"],
                     cache_examples=True,
                     title="""
@@ -184,4 +133,4 @@ demo_1 = gr.Interface(fn=audio_gen_1,
 
 demo = gr.TabbedInterface([demo_1, demo_2, demo_3], ["Faster model", "Better model", "Record!"])
 
-demo.launch(inline = False, server_name="0.0.0.0")
+demo.launch(inline = False)

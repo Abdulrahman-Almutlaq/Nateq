@@ -19,31 +19,11 @@ To run Nateq locally, follow these steps:
    pip install gradio pydub librosa google-cloud-vision numpy
    ```
 
-2. Install the Tesseract OCR engine:
 
-* On Linux:
-```
-sudo apt-get install tesseract-ocr
-```
-
-* On macOS:
-```
-brew install tesseract
-```
-
-3. Install the required Python packages for Tesseract OCR:
-```
-pip install pytesseract
-```
-
-4. Set up Google Cloud credentials:
-
-* Set the GOOGLE_APPLICATION_CREDENTIALS environment variable to the path of your Google Cloud Vision API key file.
-
-5. Run the (Nateq) application:
-```
-python Nateq.py
-```
+2. Run the (Nateq) application:
+   ```
+   python Nateq.py
+   ```
 
 ## Usage
 (Nateq) offers multiple functionalities through its intuitive interface:
