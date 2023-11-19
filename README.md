@@ -6,7 +6,6 @@ Nateq - (ناطق) is an innovative application that leverages artificial intell
 
 - **Fast Text-to-Speech Conversion:** Utilizes OpenAI's powerful language models to generate high-quality Arabic speech from text.
 - **Enhanced Audio:** Applies audio processing techniques to improve the quality of generated speech.
-- **Image-Enhanced Text Recognition:** Integrates with Google Cloud Vision API for accurate Arabic text extraction from images.
 - **Interactive Interface:** Provides a user-friendly interface for users to input text, upload images, and record their own pronunciations.
 
 ## Installation

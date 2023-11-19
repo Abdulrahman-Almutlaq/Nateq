@@ -70,7 +70,7 @@ def record_and_thank_you(word_recording, word):
     return f"Thank you for recording the word: {word}!"
 
 demo_3 = gr.Interface(fn=record_and_thank_you, 
-                         inputs=[gr.Microphone(text="Say a word:"), 'text'],
+                         inputs=[gr.Microphone(), 'text'],
                          outputs="text")
 
 
@@ -133,4 +133,8 @@ demo_1 = gr.Interface(fn=audio_gen_1,
 
 demo = gr.TabbedInterface([demo_1, demo_2, demo_3], ["Faster model", "Better model", "Record!"])
 
+<<<<<<< HEAD
 demo.launch(inline = False, share=True)
+=======
+demo.launch(inline = False, server_name="0.0.0.0")
+>>>>>>> d8f89d3d4f8806afbd5ab9164175f331f830c39d
