@@ -70,7 +70,7 @@ def record_and_thank_you(word_recording, word):
     return f"Thank you for recording the word: {word}!"
 
 demo_3 = gr.Interface(fn=record_and_thank_you, 
-                         inputs=[gr.Microphone(text="Say a word:"), 'text'],
+                         inputs=[gr.Microphone(text="Say a word:"), gr.Text()],
                          outputs="text")
 
 
