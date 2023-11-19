@@ -53,9 +53,9 @@ def audio_gen_2(message, image=None):
         input=message,
     )
     
-    response.stream_to_file("output.wav")
+    response.stream_to_file("output.mp3")
     
-    y, sr = librosa.load('output.wav')
+    y, sr = librosa.load('output.mp3')
     
     return (sr, y)
 
@@ -103,17 +103,17 @@ def audio_gen_1(message):
             input=message,
         )
 
-        response.stream_to_file("output.wav")
+        response.stream_to_file("output.mp3")
 
-        y, sr = librosa.load('output.wav')
+        y, sr = librosa.load('output.mp3')
 
-        file_path = "output.wav"
+        file_path = "output.mp3"
 
         current_path = os.getcwd()
         
         full_path = os.path.join(current_path, file_path)
 
-        audio = AudioSegment.from_file(full_path, format="wav")
+        audio = AudioSegment.from_file(full_path, format="mp3")
 
         if not is_noise(audio):
             flag = False
