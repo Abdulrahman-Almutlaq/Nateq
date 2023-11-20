@@ -41,8 +41,8 @@ def is_noise(audio, threshold_energy=-30):
 print(sf.available_formats())
 
 
-os.environ['OPENAI_API_KEY'] = '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'
-openai.api_key = "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"
+os.environ['OPENAI_API_KEY'] = ''
+openai.api_key = ""
 
 def audio_gen_2(message, image=None):
     client = OpenAI()
@@ -75,10 +75,9 @@ demo_3 = gr.Interface(fn=record_and_thank_you,
                          outputs="text")
 
 
-os.environ['OPENAI_API_KEY'] = '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'
-openai.api_key = "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"
+os.environ['OPENAI_API_KEY'] = ''
+openai.api_key = ""
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "vision-405518-2712c0cc1527.json"
 
 def is_noise(audio, threshold_energy=-30):
     audio_array = np.array(audio.get_array_of_samples())
