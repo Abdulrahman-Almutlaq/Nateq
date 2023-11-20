@@ -41,8 +41,8 @@ def is_noise(audio, threshold_energy=-30):
 print(sf.available_formats())
 
 
-os.environ['OPENAI_API_KEY'] = ''
-openai.api_key = ""
+os.environ['OPENAI_API_KEY'] = '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'
+openai.api_key = "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"
 
 def audio_gen_2(message, image=None):
     client = OpenAI()
@@ -75,8 +75,8 @@ demo_3 = gr.Interface(fn=record_and_thank_you,
                          outputs="text")
 
 
-os.environ['OPENAI_API_KEY'] = ''
-openai.api_key = ""
+os.environ['OPENAI_API_KEY'] = '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'
+openai.api_key = "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"
 
 
 def is_noise(audio, threshold_energy=-30):
